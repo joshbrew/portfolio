@@ -1,7 +1,7 @@
 # Joshua Brewster's Portfolio 
 
 Check out all of my progress and offerings as a developer in one interactive app! 
-- [Hosted Example](https://190.92.148.106) 
+- [Hosted Example](http://190.92.148.106) 
 - [Alt self-signed https link](https://190.92.148.106:8080/)
 
 ![image](src/assets/screenshots/myapp.png)
