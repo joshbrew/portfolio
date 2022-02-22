@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html>
+<head> 
+    <link rel="stylesheet" href="src/styles/styles.css"></link>
+    <script> //Service workers for pwa test.  `npm run pwa`
+        if(typeof process !== 'undefined') { //node environment variable        
+            // Check that service workers are supported
+            if (process.env.NODE_ENV === 'production' && "serviceWorker" in navigator) addEventListener('load', () => {
+                navigator.serviceWorker
+                .register("dist/service-worker.js")
+                .catch((err) => console.log("Service worker registration failed", err));
+            });
+        }
+    </script>
+</head>
+<body style="overflow:hidden;">
+    <!-- Need this included -->
+    <script src="dist/app.js"></script>    
+
+    <!-- Acyclic Graph test -->
+    <!-- <acyclic-graph>
+        <graph-node input="HELLO WORLD O__O">
+            <graph-node></graph-node>
+        </graph-node>
+        
+        Add:
+        <input-node type="number">
+            <button-node><br>
+                <circlecanvas-node style="height:200px;width:200px;"></circlecanvas-node>
+            </button-node>
+        </input-node>
+        <br>
+    
+    </acyclic-graph> -->
+
+    <top-nav></top-nav>
+
+    <logger- 
+        style="position:fixed; display:inline-block; z-index:10; bottom:0px; opacity:0.75; font-size:small; font-family:'Courier New', Courier, monospace;"
+    ></logger->
+
+
+    <!-- set meter_per_px on the space-node to control radius relative to screen size. The current scales are based on actual planetary scales -->
+    <space-node style="height:100%; width:100%; position:absolute;">
+        <physics-body tag="sun" px="1" py="1" vx="-1000" vy="1000"  style="background-color:yellow;" radius="70378100000"                                 mass= "100000000000000000000000000000" ></physics-body>
+        <planet-earth tag="earth" img="src/assets/globe.png" vx="-12000"  vy="-6000" theta="5"                                                              mass="100000000000000000000000000" style="background-color:green;" ></planet-earth>
+        <planet-nodejs tag="mars" vx="7000"  vy="-12000" vz="-1000" style="background-color:rgba(0,155,0,0);" img="src/assets/node.png"  radius="50378100000" theta="0.6" vx="4000" vy="2000"   mass= "80000000000000000000000000000" ></planet-nodejs>
+        <planet-javascript tag="saturn" vx="-3000" vy="12000" vz="3000" px="-220000000000" img="src/assets/js.png" radius="50378100000"                                                           mass= "50000000000000000000000000000" vz="10000"></planet-javascript>
+        <planet-startup tag="jupiter" vx="-10000" vy="7000" vz="-2000" px="-150000000000" py="-150000000000" img="src/assets/bap.png" radius="50378100000" mass="50000000000000000000000000000" vz="10000"></planet-startup>
+        <planet-maker tag="neptune" vx="10000" vy="10000" vz="-3000" px="-220000000000" py="150000000000" img="src/assets/pcba.png" radius="50378100000"    mass="20000000000000000000000000000" vz="10000"></planet-maker>
+        <planet-python vx="-7000" vy="6000" vz="5000" style='background-color:rgba(0, 255, 255, 0);' img="src/assets/python.png" tag="python" py="250000000000" radius="50378100000" mass="2000000000000000000000000000" vz="10000" ></planet-python>
+        <physics-body 
+            img="src/assets/icons/typescript.png" 
+            px="-250000000000" 
+            py="70000000000"  
+            vx="5000"  
+            vy="10000"  
+            style="background-color:rgba(0,0,0,1);" 
+            radius="10000000000" 
+            mass="400000000000000000000000000" 
+        ></physics-body>
+        <physics-body 
+            img="src/assets/icons/html5.png" 
+            px="-150000000000" 
+            py="20000000000"  
+            vx="-2000"  
+            vy="10000"  
+            style="background-color:rgba(0,0,0,0);" 
+            radius="10000000000" 
+            mass="500000000000000000000000000" 
+        ></physics-body>
+        <physics-body 
+            img="src/assets/icons/css3.png" 
+            px="-150000000000" 
+            py="5000000000"  
+            vx="-6000"  
+            vy="3000"  
+            style="background-color:rgba(0,0,0,0); transform:scale(0.6,1);" 
+            radius="7000000000" 
+            mass="500000000000000000000000000" 
+        ></physics-body>
+        <physics-body 
+            img="src/assets/icons/gpujs.png" 
+            px="-350000000000" 
+            py="-100000000000"  
+            vy="7000"  
+            style="background-color:rgba(0,0,0,0);" 
+            radius="10000000000" 
+            mass="1000000000000000000000000000" 
+        ></physics-body>
+        <physics-body 
+            img="src/assets/icons/nrf52.png" 
+            px="-250000000000" 
+            py="200000000000"
+            style="background-color:rgba(0,0,0,1);" 
+            radius="10000000000" 
+            vx="2000"
+            vy="5000"  
+            mass="900000000000000000000000000" 
+        ></physics-body>
+        <physics-body 
+            img="src/assets/icons/react.png" 
+            px="-300000000000" 
+            py="0"  
+            style="background-color:rgb(34, 34, 34);" 
+            radius="10000000000" 
+            vy="-10000"  
+            mass="400000000000000000000000000"          
+        ></physics-body>
+        <physics-body 
+            img="src/assets/icons/arduino.png" 
+            px="-300000000000" 
+            py= "150000000000"  
+            style="background-color:rgb(75, 183, 255);" 
+            radius="10000000000" 
+            vy="6000"  
+            mass="70000000000000000000000000" 
+        ></physics-body>
+        <physics-body 
+            img="src/assets/icons/esbuild.png" 
+            px="300000000000" 
+            py= "150000000000"  
+            style="background-color:rgb(255, 183, 75);" 
+            radius="10000000000" 
+            vy="6000"  
+            mass="20000000000000000000000000" 
+        ></physics-body>
+        <physics-body 
+            img="src/assets/icons/espressif.png" 
+            px="-200000000000" 
+            py= "250000000000"  
+            style="background-color:rgba(0, 0, 0,0);" 
+            radius="10000000000" 
+            vx="6000"  
+            mass="20000000000000000000000000" 
+        ></physics-body>
+        <physics-body 
+            img="src/assets/icons/ghub.png" 
+            px="-200000000000" 
+            py= "-250000000000"  
+            style="background-color:rgba(255,255,255,0.75);" 
+            radius="10000000000" 
+            vx="-6000" 
+            vz="-5000" 
+            mass="20000000000000000000000000" 
+        ></physics-body>
+        <physics-body 
+            img="src/assets/icons/chromium.png" 
+            px="200000000000" 
+            py= "-50000000000"  
+            style="background-color:rgba(255,255,255,0.75);" 
+            radius="10000000000" 
+            vx="6000" 
+            vz="-5000" 
+            mass="20000000000000000000000000" 
+        ></physics-body>
+        <physics-body 
+            img="src/assets/icons/cordova.png" 
+            px="260000000000" 
+            py= "-50000000000"  
+            style="background-color:rgba(255,255,255,0.0);" 
+            radius="10000000000" 
+            vx="-1000" 
+            vz="-5000" 
+            mass="20000000000000000000000000" 
+        ></physics-body>
+        <physics-body 
+            img="src/assets/icons/electron.png" 
+            px="100000000000" 
+            py= "-20000000000"  
+            style="background-color:rgba(255,255,255,0.75);" 
+            radius="10000000000" 
+            vx="10000" 
+            vy="3000" 
+            mass="20000000000000000000000000" 
+        ></physics-body>
+        <physics-body 
+            img="src/assets/icons/nativescript.png" 
+            px="200000000000" 
+            py= "120000000000"  
+            style="background-color:rgba(255,255,255,0.75);" 
+            radius="10000000000" 
+            vx="-10000" 
+            vy="-2000" 
+            mass="20000000000000000000000000" 
+        ></physics-body>
+        <physics-body 
+            img="src/assets/icons/sass.png" 
+            px="-250000000000" 
+            py= "-50000000000"  
+            style="background-color:rgba(255,255,255,0.75);" 
+            radius="10000000000" 
+            vx="-10000" 
+            vy="2000" 
+            mass="20000000000000000000000000" 
+        ></physics-body>
+        <physics-body 
+            img="src/assets/icons/vscode.png" 
+            px="250000000000" 
+            py= "50000000000"  
+            style="background-color:rgba(255,255,255,0.0);" 
+            radius="10000000000" 
+            vx="1000" 
+            vy="20000" 
+            mass="10000000000000000000000000" 
+        ></physics-body>
+        <physics-body 
+            img="src/assets/icons/mongo.png" 
+            px="200000000000" 
+            py= "350000000000"  
+            style="background-color:rgba(0, 0, 0,0);" 
+            radius="10000000000" 
+            vx="6000"
+            vy="-2000"  
+            mass="10000000000000000000000000" 
+        ></physics-body>
+        <physics-body 
+            img="src/assets/icons/alyce.png" 
+            px="-200000000000" 
+            py= "-150000000000"  
+            style="background-color:rgba(0, 0, 0,0);" 
+            radius="10000000000" 
+            vx="6000"
+            vy="-2000"  
+            mass="10000000000000000000000000" 
+        ></physics-body>
+        <physics-body 
+            img="src/assets/maxent.png" 
+            px="-250000000000" 
+            py= "-150000000000"  
+            style="background-color:ghostwhite;" 
+            radius="10000000000" 
+            vx="6000"
+            vy="-2000"  
+            mass="10000000000000000000000000" 
+        ></physics-body>
+    </space-node>
+    
+    
+    <!-- <socket-></socket-> -->
+    <!-- <socket- protocol="ws" port="7001"></socket-> -->
+    <!-- <sse-></sse-> -->
+
+    
+    <!-- Socket injected here in `npm run dev` or `npm run startdev` mode for hot reload -->
+</body>
+</html>

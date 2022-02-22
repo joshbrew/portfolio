@@ -1,0 +1,213 @@
+body{
+    background-color:#111111;
+    opacity:0.0;
+    animation:fade-in 5s forwards;
+}
+
+.saturate {
+    animation: saturate 3s infinite;
+}
+
+@keyframes saturate {
+    0%, 100%  { filter: saturate(none) hue-rotate(0deg); }
+    50% { filter: saturate(5) hue-rotate(180deg); }
+}
+
+
+@keyframes fade-in {
+    0%, 20% { opacity: 0.0; }
+    100% { opacity: 1; }
+}
+
+#saturn > div {
+    animation: saturate2 6s infinite;
+}
+
+
+@keyframes saturate2 {
+    0%, 100%  { filter: saturate(none) hue-rotate(70deg); }
+    50% { filter: saturate(5) hue-rotate(90deg); }
+}
+
+
+#neptune > div {
+    animation: makerglow 3s infinite;
+}
+
+@keyframes makerglow {
+    0%, 100%  { box-shadow:0px 0px 10px green; }
+    50% { box-shadow:0px 0px 20px hotpink; }
+}
+
+.wipe-enter {
+    animation: wipe-enter 0.5s forwards;
+}
+
+@keyframes wipe-enter {
+	0% {
+		transform: translate(-10%,100%) scale(0, .05);
+	}
+	25%{
+		transform: translate(-10%,150%) scale(1, .05);
+	}
+}
+
+.window-wipe-enter {
+    animation: window-wipe-enter 0.75s forwards;
+}
+
+.window-wipe-exit {
+    animation: window-wipe-exit 1s forwards;
+}
+
+@keyframes window-wipe-enter {
+	0% {
+		transform:  translateX(-50%) scale(0, .025);
+	}
+	50%, 70%  {
+		transform:  translateX(-50%) scale(1, .025);
+	}
+}
+
+@keyframes window-wipe-exit {
+	100% {
+		transform:  translateX(-50%) scale(0, .025);
+	}
+	50% {
+		transform:  translateX(-50%) scale(1, .025);
+	}
+}
+
+.planet-tag {
+    color:white;
+    font-size:small;
+    font-weight:bold;
+    font-family: 'Courier New', Courier, monospace;
+    position:absolute;
+    padding: 10px;
+    border-radius: 20px;
+    max-height: 50px;
+    width: 150px;
+    transform: translate(-10%,150%);
+}
+
+.pwindow {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(0,0,0,0.9);
+    position:absolute;
+    top:10%;
+    width:90%;
+    height:80%;
+    max-width:800px;
+    z-index:2000;
+    border-radius: 3px;
+    border-width: 3px;
+    padding:10px;
+    color: white;
+    border-color: whitesmoke;
+    border-style: groove;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+.pwindow-inner {
+    color:white;
+    overflow-y: scroll;
+    height:97%;
+    width:100%;
+}
+
+
+.ptable {
+    padding:10px; 
+    vertical-align:middle; 
+    text-align:center; 
+    border-collapse:collapse;
+}
+
+.pimg {
+    text-align:center; 
+    vertical-align: middle;
+}
+
+.trr {
+    border-bottom:1px solid white
+}
+
+.trtop {
+    border-top:1px solid white;
+}
+
+.td1 {
+    font-size:large; 
+}
+
+.tdtext {
+    text-align: left; 
+    font-size:small;
+}
+
+.ptdtitle {
+    font-size:large; 
+}
+
+.ptdlink {
+    background-color:ghostwhite; 
+    border-radius:50%; 
+    padding:1px;
+}
+
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.0);
+    border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.25);
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,1);
+  }
+
+@keyframes borderset {
+    0%, 100% {    
+        border-color: whitesmoke;
+    }
+    50% {
+        border-color: darkslategray;
+    }
+}
+
+a:link {
+    color:lightskyblue;
+}
+
+a:visited {
+    color: orange;
+}
+
+#sun > div {
+    box-shadow:0px 0px 40px yellow;
+    animation: sunglow 3s infinite;
+}
+
+@keyframes sunglow {
+    0%, 100% {    
+        box-shadow:0px 0px 40px yellow;
+    }
+    50% {
+        box-shadow:0px 0px 30px gold;
+    }
+}
+
+
