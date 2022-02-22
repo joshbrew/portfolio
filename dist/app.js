@@ -2,7 +2,7 @@
     Check Console\r
     <button>Run</button>\r
 </div>`});var U=k((He,$t)=>{$t.exports='<canvas height="100%" width="100%"></canvas>'});var Q=k((Ze,Zt)=>{Zt.exports="<button>Click</button>"});var tt=k((Ue,Yt)=>{Yt.exports="<input></input>"});var st=k((es,Xt)=>{Xt.exports=`<div>Test worked!</div>\r
-<button>Clickme</button>`});var rt=k((rs,Kt)=>{Kt.exports="<table></table>"});var F=k(ot=>{var ee={debug:!1,protocol:"http",host:"localhost",port:8e3,hotreload:5e3,python:7e3,python_node:7001,startpage:"src/index.html",errpage:"src/other/404.html",certpath:"node_server/ssl/cert.pem",keypath:"node_server/ssl/key.pem"};ot.settings=ee});var nt=k((ds,se)=>{se.exports=`\r
+<button>Clickme</button>`});var rt=k((rs,Kt)=>{Kt.exports="<table></table>"});var F=k(ot=>{var ee={debug:!1,protocol:"http",host:"localhost",port:8080,hotreload:5e3,python:7e3,python_node:7001,startpage:"src/index.html",errpage:"src/other/404.html",certpath:"node_server/ssl/cert.pem",keypath:"node_server/ssl/key.pem"};ot.settings=ee});var nt=k((ds,se)=>{se.exports=`\r
 `});var ht=k((cs,re)=>{re.exports=""});var ct=k((fs,oe)=>{oe.exports='<canvas height="100%" width="100%"></canvas>'});var gt=k((xs,de)=>{de.exports='<canvas height="100%" width="100%" style="position:absolute;"></canvas>'});var mt=k((Cs,le)=>{le.exports=`<div class="planet-tag wipe-enter">\r
     <p style="color:white;">Double click for portfolio</p>\r
 </div>`});var yt=k((Fs,pe)=>{pe.exports=`<!-- Body of planet window popup -->\r
