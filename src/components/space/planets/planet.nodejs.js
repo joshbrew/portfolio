@@ -296,47 +296,49 @@ export class PlanetNodeJS extends PhysicsBodyNode {
             this.nClicks++;
             if(this.nClicks === 1) {
                 //make the beacon appear and start beaming messages
+                    //subscribe to sse
+                    let socketdiv = document.createElement('socket-');
 
-                //subscribe to sse
-                let socketdiv = document.createElement('socket-');
+                    socketdiv.props.host = settings.host;
+                    if((settings.host !== 'localhost' && settings.host !== '127.0.0.1') && settings.protocol === 'https') {
+                        socketdiv.props.port = settings.port;  //this will work on localhost, need to use an upgrade path otherwise
+                    }
+                    else {  
+                        // if(settings.protocol === 'http') socketdiv.props.protocol = 'wss';
+                        socketdiv.props.protocol = 'ws'; //this will work on localhost
+                        socketdiv.props.port = settings.python_node;  //this will work on localhost, need to use an upgrade path otherwise
+                    }
+                    div.appendChild(socketdiv);
 
-                // if(settings.protocol === 'http') socketdiv.props.protocol = 'wss';
-                // else socketdiv.props.protocol = 'ws';
-                socketdiv.props.host = settings.host;
-                socketdiv.props.port = settings.python_node; 
+                    props.socket=this.querySelectorAll('socket-')[1];
 
-                div.appendChild(socketdiv);
-
-                props.socket=this.querySelectorAll('socket-')[1];
-
-                if(props.socket.props.ws) {
-                    props.socket.props.ws.addEventListener('message',(ev)=>{
-                        if(!this.transmittingWS) this.transmittingWS = true;
-                        dot.style.backgroundColor = 'lightgreen';
-                        if(earth) {
-                            earth.props.ndot.style.backgroundColor = 'lightgreen';
-                        }
-                        setTimeout(()=>{
-                            if(this.transmittingWS) {
-                                if(props.socket) dot.style.backgroundColor = 'darkgreen';
-                                if(earth) {
-                                    earth.props.ndot.style.backgroundColor = 'darkgreen';
-                                }
+                    if(props.socket.props.ws) {
+                        props.socket.props.ws.addEventListener('message',(ev)=>{
+                            if(!this.transmittingWS) this.transmittingWS = true;
+                            dot.style.backgroundColor = 'lightgreen';
+                            if(earth) {
+                                earth.props.ndot.style.backgroundColor = 'lightgreen';
                             }
-                        },500);
-                    });
+                            setTimeout(()=>{
+                                if(this.transmittingWS) {
+                                    if(props.socket) dot.style.backgroundColor = 'darkgreen';
+                                    if(earth) {
+                                        earth.props.ndot.style.backgroundColor = 'darkgreen';
+                                    }
+                                }
+                            },500);
+                        });
 
-                    
-                    props.socket.props.ws.addEventListener('close', ()=>{
-                        this.transmittingWS = false;
-                         //close the beacon
-                        dot.style.backgroundColor = 'darkred';
-                        if(earth) {
-                            earth.props.ndot.style.backgroundColor = 'darkred';
-                        }
-                    });
-                }
-
+                        
+                        props.socket.props.ws.addEventListener('close', ()=>{
+                            this.transmittingWS = false;
+                            //close the beacon
+                            dot.style.backgroundColor = 'darkred';
+                            if(earth) {
+                                earth.props.ndot.style.backgroundColor = 'darkred';
+                            }
+                        });
+                    }
 
                 //do things on frontend
                 //do things on frontend

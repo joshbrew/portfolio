@@ -93,7 +93,7 @@ function onUpgrade(request, socket, head) { //https://github.com/websockets/ws
         hotreload.hotreload.handleUpgrade(request, socket, head, (ws) => {
             hotreload.hotreload.emit('connection', ws, request);
         }); 
-    }
+    } 
 }
 
 
