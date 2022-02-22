@@ -84,7 +84,7 @@ py_wss.on('connection', (ws) => {
 
     ws.send(`${py_socketUrl}: pong!`);
 
-    if(py_client.CLOSED) { 
+    if(py_client.readyState !== py_client.OPEN) { 
         ws.send(`Python relay not connected, is https enabled? Closing inactive connection!`);
         ws.close();
     }
