@@ -14,7 +14,7 @@ Requires: Python 3.7 or later and NodeJS LTS or later. The built app size minus 
 
 You can access the Node-served page at `http://localhost:8000` or the quart server test page at `http://localhost:7000` to experiment (add `/build` at port 7000 to access the webapp build via Python (minus hot reload)). 
 
-Set protocol to 'https' in server/server_settings.js for production and generate your ssl keys in the provided folder using the instructions. Be sure the python server targets them too.
+Set protocol to 'https' in server/server_settings.js for production and generate your ssl keys in the provided folder using the instructions. Set Production=true in python/server.py. Be sure the python server targets the ssl certs properly, too.
 
 ##### The Node --> Python socket requires https to relay messages to the browser between ports.
 

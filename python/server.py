@@ -13,6 +13,12 @@ host = 'localhost' ## e.g. mywebsite.com
 port = 7000
 base_dir = '../' ## Example serves both templates and static files from the base dir
 
+config = {
+    'keyfile':'node_server/ssl/key.pem',
+    'certfile':'node_server/ssl/cert.pem',
+    'bind':host+':'+str(port)
+}
+
 ## app available at http://localhost/7000
  
 import sys
@@ -404,12 +410,6 @@ async def shutdown():
 
 
 if production == True:
-
-    config = {
-        'keyfile':'node_server/ssl/key.pem',
-        'certfile':'node_server/ssl/cert.pem',
-        'bind':host+':'+str(port)
-    }
 
     if __name__ == "__main__":
         try:
