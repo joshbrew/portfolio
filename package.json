@@ -12,11 +12,13 @@
     "pwa": "npm i workbox-cli && workbox generateSW bundler/pwa/workbox-config.js && npm run build && npm start",
     "python": "python python/server.py",
     "python3": "python3 python/server.py",
+    "python3dev": "npm run pip && python3 python/server.py",
     "pip": "pip install quart && pip install websockets && pip install hypercorn",
     "concurrent": "concurrently \"npm run python\" \"npm run startdev\"",
     "production": "concurrently \"npm run python\" \"npm run pwa\"",
     "linc": "concurrently \"npm run python3\" \"npm run startdev\"",
-    "linp": "concurrently \"npm run python3\" \"npm run pwa\""
+    "linp": "concurrently \"npm run python3\" \"npm run pwa\"",
+    "netlify": "concurrently \"npm run python3dev\" \"npm run pwa\""
   },
   "keywords": [
     "esbuild"
