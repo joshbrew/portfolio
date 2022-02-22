@@ -90,8 +90,8 @@ function onUpgrade(request, socket, head) { //https://github.com/websockets/ws
             py_wss.emit('connection', ws, request);
         });
     } else if(request.url === '/hotreload') {
-        hotreload.handleUpgrade(request, socket, head, (ws) => {
-            hotreload.emit('connection', ws, request);
+        hotreload.hotreload.handleUpgrade(request, socket, head, (ws) => {
+            hotreload.hotreload.emit('connection', ws, request);
         }); 
     }
 }
