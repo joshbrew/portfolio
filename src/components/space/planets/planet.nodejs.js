@@ -243,51 +243,53 @@ export class PlanetNodeJS extends PhysicsBodyNode {
         let earth = document.querySelector('planet-earth');
 
 
-        socket.addEventListener('open', () => {
-            dot2.style.backgroundColor = 'cyan';
-            setTimeout(()=>{
-                if(!props.pysocket_closed) dot2.style.backgroundColor = 'darkblue';
-            },500);
-        });
-
-        socket.addEventListener('close', () => {
-            this.transmittingPyToNode = false;
-            dot2.style.backgroundColor = 'darkred';
-            if(earth) {
-                earth.props.npdot.style.backgroundColor = 'darkred';
-            }
-            props.pysocket_closed = true;
-        });
-
-        socket.addEventListener('message',(ev)=>{
-            if(!this.transmittingPyToNode) this.transmittingPyToNode = true;
-            dot2.style.backgroundColor = 'cyan';
-            if(earth) {
-                earth.props.npdot.style.backgroundColor = 'cyan';
-            }
-            setTimeout(()=>{
-                if(this.transmittingPyToNode) {
+        if( socket ) {
+            socket.addEventListener('open', () => {
+                dot2.style.backgroundColor = 'cyan';
+                setTimeout(()=>{
                     if(!props.pysocket_closed) dot2.style.backgroundColor = 'darkblue';
-                    if(earth) {
-                        earth.props.npdot.style.backgroundColor = 'darkblue';
-                    }
-                }
-            },500);
-        });
+                },500);
+            });
 
-        socket.onmessage = async (event) => {
-            let ts = new Date(Date.now());
-            let tsm = ts.getHours()+':'+ts.getMinutes()+':'+ts.getSeconds();
-    
-            let msg = event.data;
-    
-            if(event.data.constructor.name === 'Blob') msg = await event.data.text();
-    
-            let message = `${tsm}:: ${settings.host}:${settings.port} received:\n ${msg}`; //we can request from port 8000 or port 7001
-            let template = `<tr><td style='color:cyan;'>${message}</tr></td>`;
-    
-            if(props.pysocket.props.logger) props.pysocket.props.logger.props.log(message,template);
-            else console.log(message);
+            socket.addEventListener('close', () => {
+                this.transmittingPyToNode = false;
+                dot2.style.backgroundColor = 'darkred';
+                if(earth) {
+                    earth.props.npdot.style.backgroundColor = 'darkred';
+                }
+                props.pysocket_closed = true;
+            });
+
+            socket.addEventListener('message',(ev)=>{
+                if(!this.transmittingPyToNode) this.transmittingPyToNode = true;
+                dot2.style.backgroundColor = 'cyan';
+                if(earth) {
+                    earth.props.npdot.style.backgroundColor = 'cyan';
+                }
+                setTimeout(()=>{
+                    if(this.transmittingPyToNode) {
+                        if(!props.pysocket_closed) dot2.style.backgroundColor = 'darkblue';
+                        if(earth) {
+                            earth.props.npdot.style.backgroundColor = 'darkblue';
+                        }
+                    }
+                },500);
+            });
+
+            socket.onmessage = async (event) => {
+                let ts = new Date(Date.now());
+                let tsm = ts.getHours()+':'+ts.getMinutes()+':'+ts.getSeconds();
+        
+                let msg = event.data;
+        
+                if(event.data.constructor.name === 'Blob') msg = await event.data.text();
+        
+                let message = `${tsm}:: ${settings.host}:${settings.port} received:\n ${msg}`; //we can request from port 8000 or port 7001
+                let template = `<tr><td style='color:cyan;'>${message}</tr></td>`;
+        
+                if(props.pysocket.props.logger) props.pysocket.props.logger.props.log(message,template);
+                else console.log(message);
+            }
         }
 
         div.onclick = (e) => {

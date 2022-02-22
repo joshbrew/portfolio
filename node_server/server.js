@@ -102,8 +102,6 @@ function onStarted() {
     );
 }
 
-
-
 //now create the http/https server. For hosted servers, use the IP and open ports. Default html port is 80 or sometimes 443
 if(cfg.settings.protocol === 'http') {
     
