@@ -7,7 +7,7 @@ let component = require('./socket.component.html');
 //See: https://github.com/brainsatplay/domelement
 export class Socket extends DOMElement {
     props={
-        protocol:'ws',
+        protocol:settings.socket_protocol,
         host:settings.host, 
         port:settings.python, //settings.python_node 
         subdomain:'',
@@ -21,7 +21,7 @@ export class Socket extends DOMElement {
     constructor(){
         super();
 
-        if(settings.protocol === 'http') this.props.protocol = 'ws'; //still ws for node sockets in https
+        //if(settings.protocol === 'http') this.props.protocol = 'ws'; //still ws for node sockets in https
     }
 
     //default
