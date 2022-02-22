@@ -11,9 +11,12 @@
     "startdev": "nodemon --exec \"npm run build && node node_server/server.js\" -e ejs,js,ts,jsx,tsx,css,html,jpg,png,scss,txt,csv",
     "pwa": "npm i workbox-cli && workbox generateSW bundler/pwa/workbox-config.js && npm run build && npm start",
     "python": "python python/server.py",
+    "python3": "python3 python/server.py",
     "pip": "pip install quart && pip install websockets && pip install hypercorn",
     "concurrent": "concurrently \"npm run python\" \"npm run startdev\"",
-    "production": "concurrently \"npm run python\" \"npm run pwa\""
+    "production": "concurrently \"npm run python\" \"npm run pwa\"",
+    "linc": "concurrently \"npm run python3\" \"npm run startdev\"",
+    "linp": "concurrently \"npm run python3\" \"npm run pwa\""
   },
   "keywords": [
     "esbuild"
