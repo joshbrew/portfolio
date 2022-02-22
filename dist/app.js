@@ -987,7 +987,7 @@
     </table>\r
     <hr>\r
     <p style="font-size:14px;">\r
-        The webapp you're using to read this was programmed from scratch in 1 week with a mix of pure Javascript, HTML5, and CSS. Minus images, this app comes in at about 400kb!<br><br>\r
+        The webapp you're using to read this was programmed from scratch in 1 week with a mix of pure Javascript, HTML5, and CSS. Minus images, this app comes in at about 500kb with about 24MB of build tools!<br><br>\r
         The app simulates particles, boids, newtonian mechanics in 3D for planetary motion, and basic spherical collisions on an acyclic graph, then is made interactive and quickly programmable with web components. \r
         It also demonstrates server-client and server-server communications with an asynchronous, multithreaded python server (via Quart) and a hot-reloading Node backend. \r
         Either server can serve the final build compiled by esbuild, and it can run as a PWA if hosted. You can reload one server without interrupting the other, too, e.g. for development.\r
