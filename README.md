@@ -2,7 +2,7 @@
 
 ![image](src/assets/screenshots/myapp.png)
 
-Check out all of my progress and offerings as a developer in one interactive app! 
+Check out all of my progress and offerings as a developer in one interactive app! [Hosted example (self-signed SSL so ignore the warning)](https://190.92.148.106:8080/)
 
 ## Setup
 
