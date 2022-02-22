@@ -23,7 +23,7 @@ Set protocol to 'https' in server/server_settings.js for production and generate
 
 The node `ws` library requires ssl certs to access the python port.
 
-## Run Concurrent Python & Node servers afte setup: 
+## Run Concurrent Python & Node servers after setup: 
 
 `npm run concurrent`
 
